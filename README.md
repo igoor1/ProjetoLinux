@@ -60,11 +60,11 @@ Adicionando sua Página Web
 1. Para criar o webhook, acesse o servidor do Discord em que você deseja receber as notificações e siga os seguintes passos:
 - Servidor > Editar canal > interações > Webhooks
 
-![alt text](image.png)
+![alt text](assets/dcConf.png)
 
 2. Selecione **Criar webhook** e copie a URL gerada.
 
-![alt text](image-1.png)
+![alt text](assets/newwebhook.png)
 
 3. Após isso, acesse novamente o diretório do repositório que você clonou e mova ou copie o script de monitoramento para a raiz do sistema (/).
 
