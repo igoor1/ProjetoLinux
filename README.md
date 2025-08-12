@@ -24,7 +24,7 @@ Após o download, faça a instalação dos programas.
 ```bash
   apt-get install nginx
 ```
- ![Entrando no root e bainxando nginx](assets/sudosu.png)
+ ![Entrando no root e baixando nginx](assets/sudosu.png)
 
 ### 3. Agora, verifique se o serviço foi iniciado.
 ```bash
@@ -144,7 +144,7 @@ Após o download, faça a instalação dos programas.
 
 Este será o resultado:
 
- ![registro de logs](assets/registrolog.png)
+ ![Registro de logs](assets/registrolog.png)
 
 
 ## Etapa 4: Automação e Testes
