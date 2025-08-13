@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DISCORD_WEBHOOK_URL="https://discord.com/api/webhooks/1403429777641181275/ySeVG4vJTrCdVvc9Li4cDLeVcMt4eQMCcRDn80GtMI6GPDcYYUjeXN2Y3xPZ8QrC4MpB"
+DISCORD_WEBHOOK_URL="SUA URL AQUI" # Coloque aqui seu link do WebHook.
 
 LOG_FILE="/var/log/monitoramento.log"
 
@@ -14,9 +14,9 @@ enviar_notificacao(){
     curl -H "Content-Type: application/json" -d "$json_payload" "$DISCORD_WEBHOOK_URL"
 }
 
-STATUS=$(curl -s -o /dev/null -w "%{http_code}" 192.168.1.12)
+STATUS=$(curl -s -o /dev/null -w "%{http_code}" 192.168.1.1)  # Coloque aqui seu endereço IP.
 
-if [ "$STATUS" -eq 200 ]; then
+if [ "$STATUS" == 200 ]; then
     SITE_STATUS="✅ O site está ONLINE!"
     echo "$(date '+%d/%m/%Y %H:%M:%S') | $SITE_STATUS" >> "$LOG_FILE"
 else 
@@ -24,5 +24,5 @@ else
     echo "$(date '+%d/%m/%Y %H:%M:%S') | $SITE_STATUS" >> "$LOG_FILE"
     enviar_notificacao "$SITE_STATUS" "error"
 
-    service nginx restart
+    service nginx restart # Comando para reiniciar o Nginx.
 fi
