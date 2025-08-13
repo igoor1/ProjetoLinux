@@ -62,7 +62,7 @@ Após o download, faça a instalação dos programas.
 ### Configurando o Webhook no Discord
 
 ### 1. Para criar o webhook, acesse o servidor do Discord em que você deseja receber as notificações e siga os seguintes passos:
-- Servidor > Editar canal > interações > Webhooks
+- Servidor > Editar canal > Interações > Webhooks
 
 ![discord editar canal](assets/dcConf.png)
 
@@ -76,7 +76,7 @@ Após o download, faça a instalação dos programas.
 
 ```bash
   cd /ProjetoLinux/script/
-  cp checkscript.sh /
+  cp checkstatus.sh /
 ```
 
 ### 4. No diretório raiz (/), edite o arquivo checkstatus.sh com um editor de texto (como o vi ou nano) e adicione o link do seu webhook e o IP da máquina.
@@ -187,13 +187,13 @@ Este trecho do script é uma estrutura condicional if-else para verificar o resu
 ### Cenário de Sucesso
 
 ```bash 
-if [ "$STATUS" -eq 200 ]; then
+if [ "$STATUS" == 200 ]; then
     SITE_STATUS="✅ O site está ONLINE!"
     echo "$(date '+%d/%m/%Y %H:%M:%S') | $SITE_STATUS" >> "$LOG_FILE"
 ```
-- caso seja 200, o script salva a mensagem de "ONLINE" no arquivo log com a data e hora.
+- Caso o resultado da requisição seja HTTP 200, o script salva a mensagem de "ONLINE" no arquivo de log com a data e hora.
 
-### Cenario de falha
+### Cenário de falha
 
 ```bash
 else 
@@ -204,7 +204,7 @@ else
     service nginx restart
 fi
 ```
-- Caso a condicão no IF seja falsa, executa este bloco onde registra a mensagem de falha no arquivo, notifica o discord chamando a função  e executa o comando para tentar reiniciar o servidor.
+- Caso a condição no IF seja falsa, executa este bloco onde registra a mensagem de falha no arquivo, notifica via Discord chamando a função e executa o comando para tentar reiniciar o servidor.
 
 ### 2. Automação
 
@@ -219,9 +219,9 @@ A automação foi aplicada de 2 formas no projeto:
     service nginx restart
 ```
 
-### 3. testes
+### 3. Testes
 
- - Forcamos a parada do Nginx com:
+ - Forçamos a parada do Nginx com:
  ```bash
     service nginx stop
 ```
